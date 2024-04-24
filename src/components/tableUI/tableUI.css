@@ -1,0 +1,50 @@
+.Round {
+  border: 1px solid rgb(0, 0, 255);
+  background-color: rgba(0, 0, 255, 0.3);
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.Square {
+  border: 1px solid rgb(0, 255, 0);
+  background-color: rgba(0, 255, 0, 0.3);
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Rectangle {
+  border: 1px solid rgb(255, 0, 0);
+  background-color: rgba(255, 0, 0, 0.3);
+  height: 50px;
+  width: 80px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Triangle {
+  width: 0px;
+  height: 0px;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 70px solid rgba(128, 0, 128, 0.4);
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.Triangle.locked,
+.Round.locked,
+.Square.locked,
+.Rectangle.locked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon.lock {
+  display: flex;
+  color: black;
+}

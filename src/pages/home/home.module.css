@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  background-color: rgba(199, 199, 199, 0.3);
+}
+
+.table__holder {
+  position: relative;
+  width: 80vw;
+  min-height: 90vh;
+}
+
+.sidebar {
+  width: 20vw;
+  min-height: 90vh;
+  max-height: 90vh;
+  border-right: 1px solid silver;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  background-color: white;
+  padding-top: 1rem;
+}
+
+.table__section {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.h2 {
+  text-align: left;
+  margin: 0;
+}
+
+.table__details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  text-align: left;
+}
+
+.table__p {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.button {
+  height: 40px;
+  width: 100%;
+  background-color: #3ecca6;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.reservation__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+}
+
+.submit__button {
+  height: 48px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: #3ecca6;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  font-size: 17px;
+  transition: 0.1s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.submit__button:hover {
+  opacity: 0.8;
+}
+
+.submit__button.disabled {
+  cursor: alias;
+  background-color: gray;
+}
+
+.table__span {
+  font-weight: 700;
+  margin-right: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}

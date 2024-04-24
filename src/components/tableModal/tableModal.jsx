@@ -91,6 +91,8 @@ const TableModal = ({
           maxCapacity: maxCapacity,
           typeee: typeee,
           locked: locked,
+          xPosition: xPosition,
+          yPosition: yPosition,
         });
         console.log(res);
         setLoading(false);

@@ -33,14 +33,17 @@ export function Home() {
   const [date, setDate] = useState();
   const [time, setTime] = useState();
   const [loading, setLoading] = useState(false);
+  const [dataLoading, setDataLoading] = useState(false);
   const [errorUser, setErrorUser] = useState(false);
   const [successEditTable, setSuccessEditTable] = useState(null);
   const [successReserve, setSuccessReserve] = useState(null);
 
   useEffect(() => {
     const fetchTable = async () => {
+      setDataLoading(true);
       const res = await axiosInstance.get("/table");
       setTableData(res.data);
+      setDataLoading(false);
     };
     fetchTable();
   }, [successEditTable]);
@@ -420,36 +423,40 @@ export function Home() {
           it
         </p>
       </aside>
-      <div className={styles.table__holder}>
-        {tableData.map((table) => {
-          if (!user || user.role === "User" || table.locked === true) {
-            return (
-              <TableUIUser
-                key={table._id}
-                table={table}
-                setTableDetails={setTableDetails}
-                setFormData={setFormData}
-              />
-            );
-          } else if (user.role === "Admin") {
-            const allTablePositions = tableData.map((table) => ({
-              x: table.xPosition,
-              y: table.yPosition,
-            }));
-            return (
-              <TableUI
-                key={table._id}
-                table={table}
-                setTableDetails={setTableDetails}
-                setFormData={setFormData}
-                allTablePositions={allTablePositions}
-              />
-            );
-          } else {
-            return null;
-          }
-        })}
-      </div>
+      {dataLoading ? (
+        <p>Loading ...</p>
+      ) : (
+        <div className={styles.table__holder}>
+          {tableData.map((table) => {
+            if (!user || user.role === "User" || table.locked === true) {
+              return (
+                <TableUIUser
+                  key={table._id}
+                  table={table}
+                  setTableDetails={setTableDetails}
+                  setFormData={setFormData}
+                />
+              );
+            } else if (user.role === "Admin") {
+              const allTablePositions = tableData.map((table) => ({
+                x: table.xPosition,
+                y: table.yPosition,
+              }));
+              return (
+                <TableUI
+                  key={table._id}
+                  table={table}
+                  setTableDetails={setTableDetails}
+                  setFormData={setFormData}
+                  allTablePositions={allTablePositions}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
+        </div>
+      )}
     </Box>
   );
 }
